@@ -1,14 +1,23 @@
 ﻿using System;
 using System.Collections.Immutable;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Rocket.Libraries.PropertyNameResolver;
 
 namespace Rocket.Libraries.FormValidationHelper
 {
     public abstract class ValidatorBase<TEntity>
     {
-        public abstract Task<ImmutableList<ValidationErrors>> ValidateAsync(TEntity unValidatedObject);
+        public abstract Task<ImmutableList<ValidationError>> ValidateAsync(TEntity unValidatedObject);
 
-        protected ImmutableList<ValidationErrors> RunValidation(ImmutableList<ValidationErrors> errorsContainer, string fieldKey, bool isInvalid, string errorMessage)
+        protected ImmutableList<ValidationError> RunValidation<TPropertyType>(ImmutableList<ValidationError> errorsContainer, Expression<Func<TEntity, TPropertyType>> fieldKeyDescriber, bool isInvalid, string errorMessage)
+        {
+            var propertyName = new TypedPropertyNamedResolver<TEntity>().Resolve(fieldKeyDescriber);
+            var qualifiedPropertyName = $"{typeof(TEntity).Name}.{propertyName}";
+            return RunValidation(errorsContainer, qualifiedPropertyName, isInvalid, errorMessage);
+        }
+
+        protected ImmutableList<ValidationError> RunValidation(ImmutableList<ValidationError> errorsContainer, string fieldKey, bool isInvalid, string errorMessage)
         {
             Action<bool, string> throwExceptionIfTrue = (condition, errorDescription) =>
              {
@@ -23,13 +32,13 @@ namespace Rocket.Libraries.FormValidationHelper
 
             if (errorsContainer == null)
             {
-                errorsContainer = ImmutableList<ValidationErrors>.Empty;
+                errorsContainer = ImmutableList<ValidationError>.Empty;
             }
 
             if (isInvalid)
             {
                 errorsContainer = errorsContainer.Add(
-                    new ValidationErrors
+                    new ValidationError
                     {
                         Errors = ImmutableList<string>.Empty.Add(errorMessage),
                         Key = fieldKey,
