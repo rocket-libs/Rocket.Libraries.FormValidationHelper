@@ -1,7 +1,7 @@
 
 namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
 {
-    public class ValidatableStringObject : ModelBase
+    public class ValidatableStringObject
     {
         [StringIsNonNullable]
         public string NonNullableStringValue { get; set; }

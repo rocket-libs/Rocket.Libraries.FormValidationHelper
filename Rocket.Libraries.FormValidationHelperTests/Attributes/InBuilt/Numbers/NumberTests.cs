@@ -42,7 +42,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
         }
     }
 
-    class NumberTestsDummyClass : ModelBase
+    class NumberTestsDummyClass
     {
         [MinimumNumber(5)]
         public long Min5 { get; set; }

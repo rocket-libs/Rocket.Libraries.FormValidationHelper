@@ -45,7 +45,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
             }
         }
 
-        class MinCollectionElementsDummyClass : ModelBase
+        class MinCollectionElementsDummyClass
         {
             [EnumerableMinElementsAttribute(1)]
             public ImmutableList<string> List_Min1 { get; set; }
