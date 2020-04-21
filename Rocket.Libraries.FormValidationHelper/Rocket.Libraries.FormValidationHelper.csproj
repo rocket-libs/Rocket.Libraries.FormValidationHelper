@@ -9,6 +9,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/rocket-libs/Rocket.Libraries.FormValidationHelper</RepositoryUrl>
     <PackageProjectUrl>https://github.com/rocket-libs/Rocket.Libraries.FormValidationHelper</PackageProjectUrl>
+    <CodeAnalysisRuleSet>./rocket.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
