@@ -1,3 +1,4 @@
+using Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings;
 
 namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
 {

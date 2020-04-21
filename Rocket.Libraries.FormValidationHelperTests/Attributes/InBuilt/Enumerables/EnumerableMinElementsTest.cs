@@ -1,5 +1,8 @@
 using System.Collections.Immutable;
 using System.Threading.Tasks;
+using Rocket.Libraries.FormValidationHelper.Attributes;
+using Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Enumerables;
+using Rocket.Libraries.FormValidationHelperTests.Utility;
 using Xunit;
 
 namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerables
@@ -23,7 +26,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
                 dummyClass.List_Min1 = dummyClass.List_Min1.Add("blah");
             }
             
-            using(var validator = new SharableValidator<MinCollectionElementsDummyClass>())
+            using(var validator = new BasicFormValidator<MinCollectionElementsDummyClass>())
             {
                 var validationErrors = await validator.ValidateAsync(dummyClass);
                 if(expectError)

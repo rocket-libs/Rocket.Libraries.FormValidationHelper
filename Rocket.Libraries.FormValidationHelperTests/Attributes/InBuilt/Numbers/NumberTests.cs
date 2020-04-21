@@ -1,4 +1,7 @@
 using System.Threading.Tasks;
+using Rocket.Libraries.FormValidationHelper.Attributes;
+using Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers;
+using Rocket.Libraries.FormValidationHelperTests.Utility;
 using Xunit;
 
 namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
@@ -11,7 +14,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
         [InlineData(6,false)]
         public async Task MinimumNumberValidatedCorrectly(byte value, bool expectError)
         {
-            using(var validator = new SharableValidator<NumberTestsDummyClass>())
+            using(var validator = new BasicFormValidator<NumberTestsDummyClass>())
             {
                 var validationErrors = await validator.ValidateAsync(new NumberTestsDummyClass
                 {

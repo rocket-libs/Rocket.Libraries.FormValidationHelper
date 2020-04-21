@@ -1,25 +1,48 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29424.173
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rocket.Libraries.FormValidationHelper", "Rocket.Libraries.FormValidationHelper\Rocket.Libraries.FormValidationHelper.csproj", "{B4CBF581-C93B-40F0-A046-79CC73902FDB}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rocket.Libraries.FormValidationHelper", "Rocket.Libraries.FormValidationHelper\Rocket.Libraries.FormValidationHelper.csproj", "{8A815F32-69F9-4110-A345-40B77D8A4984}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rocket.Libraries.FormValidationHelperTests", "Rocket.Libraries.FormValidationHelperTests\Rocket.Libraries.FormValidationHelperTests.csproj", "{14A7A724-94A0-4419-AFB5-7DA6FA472780}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4CBF581-C93B-40F0-A046-79CC73902FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4CBF581-C93B-40F0-A046-79CC73902FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4CBF581-C93B-40F0-A046-79CC73902FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4CBF581-C93B-40F0-A046-79CC73902FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {95F71BC9-8190-4C15-AA3A-6F4958E43BA0}
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Debug|x64.Build.0 = Debug|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Debug|x86.Build.0 = Debug|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Release|x64.ActiveCfg = Release|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Release|x64.Build.0 = Release|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Release|x86.ActiveCfg = Release|Any CPU
+		{8A815F32-69F9-4110-A345-40B77D8A4984}.Release|x86.Build.0 = Release|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Debug|x64.Build.0 = Debug|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Debug|x86.Build.0 = Debug|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Release|x64.ActiveCfg = Release|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Release|x64.Build.0 = Release|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Release|x86.ActiveCfg = Release|Any CPU
+		{14A7A724-94A0-4419-AFB5-7DA6FA472780}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

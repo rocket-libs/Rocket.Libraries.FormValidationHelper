@@ -1,4 +1,7 @@
 using System.Threading.Tasks;
+using Rocket.Libraries.FormValidationHelper.Attributes;
+using Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings;
+using Rocket.Libraries.FormValidationHelperTests.Utility;
 using Xunit;
 
 namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
@@ -21,7 +24,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
 
             var fieldName = nameof(ValidatableStringObject.MaxLength_4_Value);
 
-            using(var stringValidator = new SharableValidator<ValidatableStringObject>())
+            using(var stringValidator = new BasicFormValidator<ValidatableStringObject>())
             {
                 var validationErrors = await stringValidator.ValidateAsync(validatableStringObject);
                 var hasError = ValidationErrorChecker.HasValidationErrorsForField<ValidatableStringObject>(
@@ -72,7 +75,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
                 NonNullableStringValue = value,
             };
 
-            using(var stringValidator = new SharableValidator<ValidatableStringObject>())
+            using(var stringValidator = new BasicFormValidator<ValidatableStringObject>())
             {
                 var validationErrors = await stringValidator.ValidateAsync(validatableStringObject);
                 if (expectError)
