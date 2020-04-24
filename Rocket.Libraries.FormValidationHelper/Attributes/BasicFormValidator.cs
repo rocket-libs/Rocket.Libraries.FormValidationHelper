@@ -9,6 +9,14 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
         {
         }
 
+        public async Task<ValidatedSaveResponse<ImmutableList<ValidationError>>> ValidateAndWrapAsync(TObject unValidatedObject)
+        {
+            return new ValidatedSaveResponse<ImmutableList<ValidationError>>
+            {
+                SaveResult = await ValidateAsync(unValidatedObject)
+            };
+        }
+        
         public override async Task<ImmutableList<ValidationError>> ValidateAsync(TObject unValidatedObject)
         {
             return await ValidateProxyAsync(
