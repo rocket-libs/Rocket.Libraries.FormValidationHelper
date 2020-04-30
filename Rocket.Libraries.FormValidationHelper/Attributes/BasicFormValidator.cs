@@ -9,9 +9,9 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
         {
         }
 
-        public async Task<ValidatedSaveResponse<TWrappedObject>> ValidateAndWrapAsync<TWrappedObject>(TObject unValidatedObject)
+        public async Task<ValidationResponse<TWrappedObject>> ValidateAndWrapAsync<TWrappedObject>(TObject unValidatedObject)
         {
-            return new ValidatedSaveResponse<TWrappedObject>
+            return new ValidationResponse<TWrappedObject>
             {
                 ValidationErrors = await ValidateAsync(unValidatedObject)
             };

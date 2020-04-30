@@ -12,7 +12,7 @@ namespace Rocket.Libraries.FormValidationHelperTests
         public void HasErrorsFlagIsSetCorrectly(bool hasError,bool flagValue)
         {
             var errors = ImmutableList<ValidationError>.Empty;
-            var validatedSaveResponse = new ValidatedSaveResponse<object>
+            var validatedSaveResponse = new ValidationResponse<object>
             {
                 ValidationErrors = hasError ? errors.Add(new ValidationError()) : errors
             };
