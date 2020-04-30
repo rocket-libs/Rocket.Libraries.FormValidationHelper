@@ -46,12 +46,13 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings
             }
         }
 
-        public StringIsInSetAttribute (params string[] set)
+        public StringIsInSetAttribute (StringComparison comparisonType, params string[] set)
         {
             this.set = set;
+            ComparisonType = comparisonType;
         }
 
-        public StringComparison ComparisonType { get; set; } = StringComparison.InvariantCulture;
+        public StringComparison ComparisonType { get; set; }
 
         public override string ErrorMessage => $"The value provide is not in the set of acceptable values: ({SupportedValues}). {ComparisonTypeDescription}";
 

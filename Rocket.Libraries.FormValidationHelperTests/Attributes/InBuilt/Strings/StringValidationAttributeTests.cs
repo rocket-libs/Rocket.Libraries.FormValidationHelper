@@ -60,7 +60,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
         [InlineData ("other", true)]
         public void StringIsInSetWorks (string item, bool expectError)
         {
-            var hasError = new StringIsInSetAttribute ("apple", "Donkey")
+            var hasError = new StringIsInSetAttribute (StringComparison.InvariantCulture, "apple", "Donkey")
                 .ValidationFailed (item);
             Assert.Equal (expectError, hasError);
         }
@@ -74,7 +74,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
         [InlineData (StringComparison.OrdinalIgnoreCase, false)]
         public void StringIsInSetWorksWithComparisonType (StringComparison comparisonType, bool expectError)
         {
-            var attrib = new StringIsInSetAttribute ("fooBar","foo","bar");
+            var attrib = new StringIsInSetAttribute (comparisonType: comparisonType, "fooBar","foo","bar");
             attrib.ComparisonType = comparisonType;
             var hasError = attrib
                 .ValidationFailed ("foobar");
