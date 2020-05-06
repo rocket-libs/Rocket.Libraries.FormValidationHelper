@@ -1,7 +1,7 @@
 dotnet clean
-Remove-Item ./TestResults -Recurse -ErrorAction Ignore
-mkdir ./TestResults -ErrorAction Ignore
+rm -r ./TestResults
+mkdir ./TestResults
 dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=cobertura
-Set-Location ./TestResults -ErrorAction Stop
+cd ./TestResults
 reportgenerator -reports:coverage.cobertura.xml -targetdir:reports
-Set-Location ..
+cd ..
