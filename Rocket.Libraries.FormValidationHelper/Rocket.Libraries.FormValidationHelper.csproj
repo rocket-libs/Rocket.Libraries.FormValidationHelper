@@ -4,13 +4,20 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <Version>2.7.0</Version>
+    <Version>2.9.0</Version>
     <Description>Library to structure how validation is handled and also returns errors in a predictable format</Description>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/rocket-libs/Rocket.Libraries.FormValidationHelper</RepositoryUrl>
     <PackageProjectUrl>https://github.com/rocket-libs/Rocket.Libraries.FormValidationHelper</PackageProjectUrl>
     <CodeAnalysisRuleSet>../rocket.ruleset</CodeAnalysisRuleSet>
     <LangVersion>Latest</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/rocket-libs/Rocket.Libraries.FormValidationHelper</RepositoryUrl>
+    <Authors>Nyingi Maina</Authors>
+    <Company>Rocket Libraries</Company>
+    <PackageDescription>Library to structure how validation is handled and also returns errors in a predictable format</PackageDescription>
   </PropertyGroup>
 
   <ItemGroup>

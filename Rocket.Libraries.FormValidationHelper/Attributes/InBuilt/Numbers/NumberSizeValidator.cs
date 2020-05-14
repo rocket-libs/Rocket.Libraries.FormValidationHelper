@@ -2,7 +2,7 @@ using System;
 
 namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
 {
-    public class NumberSizeValidator : ValidatorAttributeBase
+    public abstract class NumberSizeValidator : ValidatorAttributeBase
     {
         private readonly string operationSpecificErrorMessage;
         private readonly string operation;
@@ -30,6 +30,8 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
             {
                 case NumberOperators.GreaterThan:
                     return valueAsDouble < TargetNumber;
+                case NumberOperators.LessThan:
+                    return valueAsDouble > TargetNumber;
                 case NumberOperators.EqualTo:
                     return valueAsDouble != TargetNumber;
                 default:
