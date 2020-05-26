@@ -1,4 +1,4 @@
-namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
+namespace Rocket.Libraries.FormValidationHelper.Shared
 {
     internal static class NumberOperators
     {

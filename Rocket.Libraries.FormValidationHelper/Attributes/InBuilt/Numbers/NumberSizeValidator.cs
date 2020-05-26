@@ -1,4 +1,5 @@
 using System;
+using Rocket.Libraries.FormValidationHelper.Shared;
 
 namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
 {
