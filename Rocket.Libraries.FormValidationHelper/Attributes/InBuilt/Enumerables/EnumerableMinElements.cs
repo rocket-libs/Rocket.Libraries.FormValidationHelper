@@ -1,31 +1,15 @@
-using System.Collections;
-using System.Linq;
+using Rocket.Libraries.FormValidationHelper.Shared;
 
 namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Enumerables
 {
-    public class EnumerableMinElementsAttribute : ValidatorAttributeBase
+    public class EnumerableMinElementsAttribute : EnumerableElementsCount
     {
-        private readonly int minElements;
-
         public EnumerableMinElementsAttribute(int minElements)
+         : base(
+             minElements, 
+             $"Minimum number of elements expected in this is {minElements}", 
+             NumberOperators.GreaterThan)
         {
-            this.minElements = minElements;
-        }
-
-        public override string ErrorMessage => $"Minimum number of elements expected in this is {minElements}";
-
-        public override bool ValidationFailed(object value)
-        {
-            IEnumerable enumerable = value as IEnumerable;
-            if(enumerable == null)
-            {
-                return true;
-            }
-            else
-            {
-                var objEnumerable = enumerable.Cast<object>();
-                return objEnumerable.Count() < minElements;
-            }
         }
     }
 }
