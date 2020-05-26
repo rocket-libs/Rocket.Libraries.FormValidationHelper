@@ -111,5 +111,42 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
                 }
             }
         }
+
+
+        [Theory]
+        [InlineData("thequickbrownfoxjumpsoverthelazydog", false)]
+        [InlineData("THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG", false)]
+        [InlineData("0987654321", false)]
+        [InlineData("the quick brown fox jumps over the lazy dog", true)]
+        [InlineData("_", true)]
+        [InlineData("-", true)]
+        public async Task AllowOnlyAlphaNumericNames(string value, bool expectError)
+        {
+            var validatableStringObject = new ValidatableStringObject
+            {
+                AlphaNumericValue = value
+            };
+
+            using (var validator = new BasicFormValidator<ValidatableStringObject>())
+            {
+                var validationErrors = await validator.ValidateAsync(validatableStringObject);
+                if(expectError)
+                {
+                    ValidationErrorChecker.ErrorReported<ValidatableStringObject>(
+                        validationErrors,
+                        nameof(ValidatableStringObject.AlphaNumericValue),
+                        new StringIsAlphaNumeric().ErrorMessage
+                    );
+                }
+                else
+                {
+                    ValidationErrorChecker.ErrorNotReported<ValidatableStringObject>(
+                        validationErrors,
+                        nameof(ValidatableStringObject.AlphaNumericValue),
+                        new StringIsAlphaNumeric().ErrorMessage
+                    );
+                }
+            }
+        }
     }
 }
