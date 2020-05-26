@@ -5,7 +5,6 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
 {
     public abstract class NumberSizeValidator : ValidatorAttributeBase
     {
-        private readonly string operationSpecificErrorMessage;
         private readonly string operation;
 
         internal NumberSizeValidator (double targetNumber, string errorMessage, string operation)

@@ -6,7 +6,6 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Enumerables
 {
     public abstract class EnumerableElementsCount : ValidatorAttributeBase
     {
-        private readonly int minElements;
         private readonly int targetNumber;
         private readonly string operation;
 
