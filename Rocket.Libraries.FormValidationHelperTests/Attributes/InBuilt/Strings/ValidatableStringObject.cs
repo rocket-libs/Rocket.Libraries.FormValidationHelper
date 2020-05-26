@@ -9,7 +9,10 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
 
         public string NullableStringValue { get; set; }
 
-        [StringMaxLength(4)]
+        [StringMaxLength (4)]
         public string MaxLength_4_Value { get; set; }
+
+        [StringIsAlphaNumeric]
+        public string AlphaNumericValue { get; set; }
     }
 }
