@@ -14,7 +14,7 @@ namespace Rocket.Libraries.FormValidationHelper
         ValidationResponse<object> Success();
         Task<ValidationResponse<TResult>> RouteResponseAsync<TResult>(ValidationResponse<object> validationResponse, Func<Task<ValidationResponse<TResult>>> ifNoErrorCallback);
         ValidationResponse<object> Error(string errorMessage, string key);
-        Task<ValidationResponse<TResult>> RouteResponseAsync<TResult>(ValidationResponse<TResult> validationResponse, Func<Task<ValidationResponse<TResult>>> ifNoErrorCallback);
+        Task<ValidationResponse<TResult>> RouteResponseAsync<TResult>(ValidationResponse<TResult> validationResponse, Func<TResult, Task<ValidationResponse<TResult>>> ifNoErrorCallback);
     }
 
     public class ValidationResponseHelper : IValidationResponseHelper
@@ -75,9 +75,9 @@ namespace Rocket.Libraries.FormValidationHelper
             return await RouteResponseTypedAsync<object, TResult>(validationResponse, async (_) => await ifNoErrorCallback());
         }
         
-        public async Task<ValidationResponse<TResult>> RouteResponseAsync<TResult>(ValidationResponse<TResult> validationResponse, Func<Task<ValidationResponse<TResult>>> ifNoErrorCallback)
+        public async Task<ValidationResponse<TResult>> RouteResponseAsync<TResult>(ValidationResponse<TResult> validationResponse, Func<TResult, Task<ValidationResponse<TResult>>> ifNoErrorCallback)
         {
-            return await RouteResponseTypedAsync<TResult, TResult>(validationResponse, async (_) => await ifNoErrorCallback());
+            return await RouteResponseTypedAsync<TResult, TResult>(validationResponse, ifNoErrorCallback);
         }
         
         public async Task<ValidationResponse<TResult>> RouteResponseTypedAsync<TSource, TResult>(ValidationResponse<TSource> validationResponse, Func<TSource, Task<ValidationResponse<TResult>>> ifNoErrorCallback)
