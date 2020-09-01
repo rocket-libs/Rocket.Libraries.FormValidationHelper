@@ -6,8 +6,8 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
     public class StringIsValidEmailTests
     {
         [Theory]
-        [InlineData (null, true)]
-        [InlineData ("", true)]
+        [InlineData (null, false)]
+        [InlineData ("", false)]
         [InlineData ("a", true)]
         [InlineData ("a@", true)]
         [InlineData ("a@b", false)]
@@ -18,7 +18,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
         [InlineData ("@b.c", true)]
         public void WorksCorrectly (string email, bool expectError)
         {
-            var result = new StringIsValidEmail ().ValidationFailed (email);
+            var result = new StringIsValidEmailOrDefault ().ValidationFailed (email);
             Assert.Equal (expectError, result);
         }
     }
