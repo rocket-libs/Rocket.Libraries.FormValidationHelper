@@ -21,9 +21,16 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings
             }
             else
             {
-                var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance ();
-                var parsedPhoneNumber = phoneNumberUtil.Parse (valueAsString, null);
-                return parsedPhoneNumber == default;
+                try
+                {
+                    var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance ();
+                    var parsedPhoneNumber = phoneNumberUtil.Parse (valueAsString, null);
+                    return parsedPhoneNumber == default;
+                }
+                catch
+                {
+                    return true;
+                }
             }
         }
     }
