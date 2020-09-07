@@ -17,7 +17,7 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings
                     case StringComparison.CurrentCulture:
                     case StringComparison.InvariantCulture:
                     case StringComparison.Ordinal:
-                        return "Note values are case-sensitive and camelCase is the default casing applied.";
+                        return "Note values are case-sensitive.";
                     case StringComparison.CurrentCultureIgnoreCase:
                     case StringComparison.InvariantCultureIgnoreCase:
                     case StringComparison.OrdinalIgnoreCase:
