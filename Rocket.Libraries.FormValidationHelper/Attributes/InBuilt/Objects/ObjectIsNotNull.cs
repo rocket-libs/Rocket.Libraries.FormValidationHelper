@@ -4,11 +4,11 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Objects
     {
         private readonly string displayLabel;
 
-        public ObjectIsNotNull(string displayLabel = "Item")
+        public ObjectIsNotNull(string displayLabel = "")
         {
-            this.displayLabel = displayLabel;
+            this.displayLabel = string.IsNullOrEmpty(displayLabel) ? "item" : displayLabel;
         }
-        public override string ErrorMessage => $"{displayLabel} was not expected to be empty";
+        public override string ErrorMessage => $"No value was provided for {displayLabel}";
 
         public override bool ValidationFailed (object value)
         {
