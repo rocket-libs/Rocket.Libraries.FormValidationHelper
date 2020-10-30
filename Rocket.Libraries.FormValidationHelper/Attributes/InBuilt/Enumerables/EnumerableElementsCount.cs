@@ -9,10 +9,11 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Enumerables
         private readonly int targetNumber;
         private readonly string operation;
 
-        public EnumerableElementsCount (int targetNumber, string errorMessage, string operation)
+        public EnumerableElementsCount (int targetNumber, string errorMessage, string operation, string displayLabel)
+            : base(displayLabel)
         {
             this.targetNumber = targetNumber;
-            ErrorMessage = errorMessage;
+            ErrorMessage = InsertDisplayLabel(errorMessage);
             this.operation = operation;
         }
 
@@ -30,7 +31,8 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Enumerables
             var enumerableCalculator = new EnumerableCalculator (
                 targetNumber,
                 ErrorMessage,
-                operation);
+                operation,
+                DisplayLabel);
             return enumerableCalculator.ValidationFailed (objEnumerable.Count ());
         }
     }

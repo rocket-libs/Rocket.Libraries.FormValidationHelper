@@ -38,7 +38,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
                     ValidationErrorChecker.ErrorReported<ValidatableStringObject> (
                         validationErrors,
                         fieldName,
-                        new StringMaxLength (default).ErrorMessage
+                        new StringMaxLength (4,string.Empty).ErrorMessage
                     );
                 }
                 else
@@ -46,7 +46,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
                     ValidationErrorChecker.ErrorNotReported<ValidatableStringObject> (
                         validationErrors,
                         fieldName,
-                        new StringMaxLength (default).ErrorMessage
+                        new StringMaxLength (default,string.Empty).ErrorMessage
                     );
                 }
             }
@@ -135,7 +135,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
                     ValidationErrorChecker.ErrorReported<ValidatableStringObject>(
                         validationErrors,
                         nameof(ValidatableStringObject.AlphaNumericValue),
-                        new StringIsAlphaNumeric().ErrorMessage
+                        new StringIsAlphaNumeric(string.Empty).ErrorMessage
                     );
                 }
                 else
@@ -143,7 +143,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
                     ValidationErrorChecker.ErrorNotReported<ValidatableStringObject>(
                         validationErrors,
                         nameof(ValidatableStringObject.AlphaNumericValue),
-                        new StringIsAlphaNumeric().ErrorMessage
+                        new StringIsAlphaNumeric(string.Empty).ErrorMessage
                     );
                 }
             }

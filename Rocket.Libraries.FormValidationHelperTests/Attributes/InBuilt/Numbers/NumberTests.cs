@@ -24,7 +24,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
                     validationErrors,
                     nameof (NumberTestsDummyClass.Min5));
                 Assert.Equal (expectError, hasError);
-                var errorMessage = new MinimumNumberAttribute (5).ErrorMessage;
+                var errorMessage = new MinimumNumberAttribute (5,string.Empty).ErrorMessage;
                 if (expectError)
                 {
                     ValidationErrorChecker.ErrorReported<NumberTestsDummyClass> (
@@ -60,7 +60,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
                     validationErrors,
                     nameof (NumberTestsDummyClass.Max2));
                 Assert.Equal (expectError, hasError);
-                var errorMessage = new MaximumNumberAttribute (2).ErrorMessage;
+                var errorMessage = new MaximumNumberAttribute (2,string.Empty).ErrorMessage;
                 if (expectError)
                 {
                     ValidationErrorChecker.ErrorReported<NumberTestsDummyClass> (
@@ -95,7 +95,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
                     validationErrors,
                     nameof (NumberTestsDummyClass.Equal7));
                 Assert.Equal (expectError, hasError);
-                var errorMessage = new NumberEqualToAttribute (7).ErrorMessage;
+                var errorMessage = new NumberEqualToAttribute (7,string.Empty).ErrorMessage;
                 if (expectError)
                 {
                     ValidationErrorChecker.ErrorReported<NumberTestsDummyClass> (
@@ -128,7 +128,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
                     validationErrors,
                     nameof (NumberTestsDummyClass.NullEqual0));
                 Assert.True (hasError);
-                var errorMessage = new NumberEqualToAttribute (1).ErrorMessage;
+                var errorMessage = new NumberEqualToAttribute (1,string.Empty).ErrorMessage;
                 ValidationErrorChecker.ErrorReported<NumberTestsDummyClass> (
                     validationErrors,
                     nameof (NumberTestsDummyClass.NullEqual0),
@@ -140,16 +140,16 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Numbers
 
     class NumberTestsDummyClass
     {
-        [MinimumNumber (5)]
+        [MinimumNumber (5,"")]
         public long Min5 { get; set; }
 
-        [MaximumNumber(2)]
+        [MaximumNumber(2,"")]
         public long Max2 { get; set; }
 
-        [NumberEqualTo (7)]
+        [NumberEqualTo (7,"")]
         public decimal Equal7 { get; set; }
 
-        [NumberEqualTo (1)]
+        [NumberEqualTo (1,"")]
         public byte? NullEqual0 { get; set; }
     }
 }

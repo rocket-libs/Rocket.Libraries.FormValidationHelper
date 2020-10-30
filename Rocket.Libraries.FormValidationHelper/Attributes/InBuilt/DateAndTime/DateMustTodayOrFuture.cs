@@ -5,7 +5,7 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.DateAndTime
     [AttributeUsage (AttributeTargets.Property)]
     public class DateMustTodayOrFuture : ValidatorAttributeBase
     {
-        public override string ErrorMessage => "Date must either be today, or a date in the future";
+        public override string ErrorMessage => GetPrefixedWithDisplayLabelIfAvailable("Must either be today, or a date in the future");
 
         public override bool ValidationFailed (object value)
         {

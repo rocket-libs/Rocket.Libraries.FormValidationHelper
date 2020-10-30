@@ -7,7 +7,7 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.DateAndTime
     {
         public static string MessageOnError => new DateMustBeFuture().ErrorMessage;
         
-        public override string ErrorMessage => "Must be a future date.";
+        public override string ErrorMessage => GetPrefixedWithDisplayLabelIfAvailable("Must be a future date.");
 
         
 

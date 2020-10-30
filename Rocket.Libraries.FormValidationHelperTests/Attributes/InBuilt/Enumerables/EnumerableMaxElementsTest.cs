@@ -35,7 +35,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
                     ValidationErrorChecker.ErrorReported<MaxCollectionElementsDummyClass>(
                         validationErrors,
                         nameof(MaxCollectionElementsDummyClass.List_Max1),
-                        new EnumerableMaxElements(maxLength).ErrorMessage
+                        new EnumerableMaxElements(maxLength,string.Empty).ErrorMessage
                     );
                 }
                 else
@@ -43,7 +43,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
                     ValidationErrorChecker.ErrorNotReported<MaxCollectionElementsDummyClass>(
                         validationErrors,
                         nameof(MaxCollectionElementsDummyClass.List_Max1),
-                        new EnumerableMaxElements(maxLength).ErrorMessage
+                        new EnumerableMaxElements(maxLength,string.Empty).ErrorMessage
                     );
                 }
             }
@@ -51,7 +51,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
 
         class MaxCollectionElementsDummyClass
         {
-            [EnumerableMaxElements(1)]
+            [EnumerableMaxElements(1,"")]
             public ImmutableList<string> List_Max1 { get; set; }
         }
     }

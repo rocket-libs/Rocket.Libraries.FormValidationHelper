@@ -4,11 +4,12 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Enumerables
 {
     public class EnumerableMaxElements : EnumerableElementsCount
     {
-        public EnumerableMaxElements(int maxElements)
+        public EnumerableMaxElements(int maxElements, string displayLabel)
          : base(
              maxElements, 
-             $"Maximum number of elements expected in this is {maxElements}", 
-             NumberOperators.LessThan)
+             $"Maximum number of elements expected for collection {ValidatorAttributeBase.DisplayLabelPlaceholder} is {maxElements}", 
+             NumberOperators.LessThan, 
+             displayLabel)
         {
         }
     }

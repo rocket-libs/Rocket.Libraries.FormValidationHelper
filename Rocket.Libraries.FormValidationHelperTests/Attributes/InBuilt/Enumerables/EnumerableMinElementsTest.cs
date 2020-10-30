@@ -34,7 +34,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
                     ValidationErrorChecker.ErrorReported<MinCollectionElementsDummyClass>(
                         validationErrors,
                         nameof(MinCollectionElementsDummyClass.List_Min1),
-                        new EnumerableMinElementsAttribute(minLength).ErrorMessage
+                        new EnumerableMinElementsAttribute(minLength,string.Empty).ErrorMessage
                     );
                 }
                 else
@@ -42,7 +42,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
                     ValidationErrorChecker.ErrorNotReported<MinCollectionElementsDummyClass>(
                         validationErrors,
                         nameof(MinCollectionElementsDummyClass.List_Min1),
-                        new EnumerableMinElementsAttribute(minLength).ErrorMessage
+                        new EnumerableMinElementsAttribute(minLength,string.Empty).ErrorMessage
                     );
                 }
             }
@@ -50,7 +50,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Enumerab
 
         class MinCollectionElementsDummyClass
         {
-            [EnumerableMinElementsAttribute(1)]
+            [EnumerableMinElementsAttribute(1,"")]
             public ImmutableList<string> List_Min1 { get; set; }
         }
     }
