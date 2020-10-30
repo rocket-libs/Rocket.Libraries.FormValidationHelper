@@ -9,7 +9,12 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings
     public class StringIsValidEmailOrDefault : ValidatorAttributeBase
     {
         private string userValue;
-        public override string ErrorMessage => $"The value '{userValue}' does not look like a valid email address";
+
+        public StringIsValidEmailOrDefault(string displayLabel) : base(displayLabel)
+        {
+        }
+
+        public override string ErrorMessage => InsertDisplayLabel($"The value '{userValue}' for field {ValidatorAttributeBase.DisplayLabelPlaceholder} does not look like a valid email address");
 
         public override bool ValidationFailed(object value)
         {

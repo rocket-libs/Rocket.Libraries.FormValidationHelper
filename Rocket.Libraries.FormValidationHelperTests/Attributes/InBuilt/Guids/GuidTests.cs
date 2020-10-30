@@ -30,7 +30,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Guids
                     ValidationErrorChecker.ErrorReported<ClassWithGuid>(
                         validationErrors,
                         nameof(ClassWithGuid.TestValueHolder),
-                        new GuidHasNonDefaultValue().ErrorMessage
+                        new GuidHasNonDefaultValue(string.Empty).ErrorMessage
                     );
                 }
                 else
@@ -38,7 +38,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Guids
                     ValidationErrorChecker.ErrorNotReported<ClassWithGuid>(
                         validationErrors,
                         nameof(ClassWithGuid.TestValueHolder),
-                        new GuidHasNonDefaultValue().ErrorMessage
+                        new GuidHasNonDefaultValue(string.Empty).ErrorMessage
                     );
                 }
             }
@@ -47,7 +47,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Guids
 
     class ClassWithGuid
     {
-        [GuidHasNonDefaultValue]
+        [GuidHasNonDefaultValue("")]
         public object TestValueHolder { get; set; }
     }
 }

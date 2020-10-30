@@ -4,7 +4,12 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings
 {
     public class StringIsAlphaNumeric : ValidatorAttributeBase
     {
-        public override string ErrorMessage => "Only alpha numeric values are allowed for this field";
+        public StringIsAlphaNumeric(string displayLabel)
+         : base(displayLabel)
+        {
+        }
+
+        public override string ErrorMessage => $"Only alpha numeric values are allowed for {ValidatorAttributeBase.DisplayLabelPlaceholder}";
 
         public override bool ValidationFailed(object value)
         {

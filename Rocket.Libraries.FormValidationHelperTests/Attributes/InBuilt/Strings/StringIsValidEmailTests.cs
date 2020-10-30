@@ -18,7 +18,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
         [InlineData ("@b.c", true)]
         public void WorksCorrectly (string email, bool expectError)
         {
-            var result = new StringIsValidEmailOrDefault ().ValidationFailed (email);
+            var result = new StringIsValidEmailOrDefault (string.Empty).ValidationFailed (email);
             Assert.Equal (expectError, result);
         }
     }

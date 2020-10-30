@@ -12,7 +12,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
         [InlineData(null)]
         public void NumberWithCountryCodePasses (string phoneNumber)
         {
-            var failed = new StringIsValidPhoneNumberWithCountryCodeOrDefault ().ValidationFailed (phoneNumber);
+            var failed = new StringIsValidPhoneNumberWithCountryCodeOrDefault (string.Empty).ValidationFailed (phoneNumber);
             Assert.False (failed);
         }
 
@@ -21,7 +21,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes.InBuilt.Strings
         [InlineData ("0733")]
         public void NumberWithoutCountryCodeFails (string phoneNumber)
         {
-            var failed = new StringIsValidPhoneNumberWithCountryCodeOrDefault ().ValidationFailed (phoneNumber);
+            var failed = new StringIsValidPhoneNumberWithCountryCodeOrDefault (string.Empty).ValidationFailed (phoneNumber);
             Assert.True (failed);
         }
     }

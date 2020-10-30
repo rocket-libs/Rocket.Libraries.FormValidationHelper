@@ -3,7 +3,13 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings
     public class StringIsValidPhoneNumberWithCountryCodeOrDefault : ValidatorAttributeBase
     {
         private string valueAsString;
-        public override string ErrorMessage => $"Value '{valueAsString}' is not a valid phone number. A leading '+' symbol as well as country code are expected";
+
+        public StringIsValidPhoneNumberWithCountryCodeOrDefault(string displayLabel)
+         : base(displayLabel)
+        {
+        }
+
+        public override string ErrorMessage => InsertDisplayLabel($"Value '{valueAsString}' for {ValidatorAttributeBase.DisplayLabelPlaceholder} is not a valid phone number. A leading '+' symbol as well as country code are expected");
 
         public override bool ValidationFailed (object value)
         {

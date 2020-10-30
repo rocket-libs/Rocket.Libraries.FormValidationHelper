@@ -20,7 +20,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes
                 var result = await validator.ValidateAndPackAsync(model);
                 Assert.Null(result.Entity);
                 Assert.Equal(
-                    new MinimumNumberAttribute(MinimumId).ErrorMessage,
+                    new MinimumNumberAttribute(MinimumId,string.Empty).ErrorMessage,
                     result.ValidationErrors.Single().Errors.Single());
                 Assert.Equal(
                     $"{nameof(Model)}.{nameof(Model.Id)}",
@@ -51,7 +51,7 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes
 
     class Model
     {
-        [MinimumNumber(BasicFormValidatorTests.MinimumId)]
+        [MinimumNumber(BasicFormValidatorTests.MinimumId,"")]
         public int Id { get; set; }
     }
 }

@@ -30,10 +30,10 @@ namespace Rocket.Libraries.FormValidationHelperTests.Attributes
         {
             VerifyAttributeIsSupported(new StringIsInSetAttribute(StringComparison.InvariantCulture,string.Empty));
             VerifyAttributeIsSupported(new StringIsNonNullable());
-            VerifyAttributeIsSupported(new StringMaxLength(default));
+            VerifyAttributeIsSupported(new StringMaxLength(default,""));
             VerifyAttributeIsSupported(new DateMustBeFuture());
-            VerifyAttributeIsSupported(new MinimumNumberAttribute(default));
-            VerifyAttributeIsSupported(new EnumerableMinElementsAttribute(default));
+            VerifyAttributeIsSupported(new MinimumNumberAttribute(default,""));
+            VerifyAttributeIsSupported(new EnumerableMinElementsAttribute(default,""));
         }
 
         private void VerifyAttributeIsSupported(object attribInstance)

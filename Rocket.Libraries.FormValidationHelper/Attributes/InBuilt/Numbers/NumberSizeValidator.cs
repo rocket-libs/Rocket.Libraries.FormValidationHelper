@@ -7,10 +7,11 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
     {
         private readonly string operation;
 
-        internal NumberSizeValidator (double targetNumber, string errorMessage, string operation)
+        internal NumberSizeValidator (double targetNumber, string errorMessage, string operation, string displayLabel)
+            : base(displayLabel)
         {
             TargetNumber = targetNumber;
-            ErrorMessage = errorMessage;
+            ErrorMessage = InsertDisplayLabel(errorMessage);
             this.operation = operation;
         }
 
