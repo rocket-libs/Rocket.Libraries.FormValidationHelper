@@ -65,7 +65,15 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Strings
             }
             else
             {
-                return !set.Any (a => a.Equals (valueAsString, ComparisonType));
+                var nothingToValidate = string.IsNullOrEmpty (valueAsString);
+                if (nothingToValidate)
+                {
+                    return false;
+                }
+                else
+                {
+                    return !set.Any (a => a.Equals (valueAsString, ComparisonType));
+                }
             }
         }
     }
