@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <Version>2.14.1</Version>
+    <Version>2.14.2</Version>
     <Description>Library to structure how validation is handled and also returns errors in a predictable format</Description>
     <PackageProjectUrl>https://github.com/rocket-libs/Rocket.Libraries.FormValidationHelper</PackageProjectUrl>
     <CodeAnalysisRuleSet>../rocket.ruleset</CodeAnalysisRuleSet>
@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="libphonenumber-csharp" Version="8.12.9" />
-    <PackageReference Include="Rocket.Libraries.PropertyNameResolver" Version="1.0.0" />
+    <PackageReference Include="Rocket.Libraries.PropertyNameResolver" Version="1.0.2" />
     <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
   </ItemGroup>
 
