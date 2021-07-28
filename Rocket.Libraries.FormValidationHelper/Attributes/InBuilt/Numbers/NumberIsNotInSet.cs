@@ -21,7 +21,7 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
             }
         }
 
-        public override string ErrorMessage => InsertDisplayLabel ($"The value '{stringValue}' is not allowed for field {ValidatorAttributeBase.DisplayLabelPlaceholder}.");
+        public override string ErrorMessage => InsertDisplayLabel ($"The value '{stringValue}' is not allowed for field {ValidatorAttributeBase.DisplayLabelPlaceholder}.{DisallowedNumbersDescription}");
         
         public override bool ValidationFailed (object value)
         {
@@ -41,6 +41,29 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes.InBuilt.Numbers
             else
             {
                 return restrictedSet.Any (restrictedNumber => restrictedNumber == numberValue);
+            }
+        }
+
+        private string DisallowedNumbersDescription 
+        {
+            get
+            {
+                if (restrictedSet.Count > 1)
+                {
+                    var result = " (Restricted number(s):";
+                    foreach (var specificNumber in restrictedSet)
+                    {
+                        result += $" '{specificNumber}',";
+                    }
+                    result = result.TrimEnd(',');
+                    result += ") ";
+                    return result;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+
             }
         }
     }
