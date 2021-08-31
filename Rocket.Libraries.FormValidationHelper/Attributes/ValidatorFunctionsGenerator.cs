@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Rocket.Libraries.FormValidationHelper;
+using Rocket.Libraries.FormValidationHelper.Entities;
 
 namespace Rocket.Libraries.FormValidationHelper.Attributes
 {
@@ -11,7 +12,6 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
     {
         public void Dispose()
         {
-            
         }
 
         public ImmutableList<Func<ImmutableList<ValidationError>, Task<ImmutableList<ValidationError>>>> GenerateValidationFunctions(
@@ -25,7 +25,7 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
                     )
                 .ToList();
             var noPropertiesToValidate = propertiesToSetup.Any() == false;
-            if(noPropertiesToValidate)
+            if (noPropertiesToValidate)
             {
                 return null;
             }
@@ -42,12 +42,6 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
                 }
                 return validationFunctions;
             }
-
-        }
-
-        private bool IsInstanceOfIValidatorAttribute(object attrib)
-        {
-            return typeof(ValidatorAttributeBase).IsAssignableFrom(attrib.GetType());
         }
 
         private ImmutableList<Func<ImmutableList<ValidationError>, Task<ImmutableList<ValidationError>>>> Generate(
@@ -62,7 +56,7 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
                         .ToList();
             var value = targetProperty.GetValue(unValidatedObject);
             var key = $"{unValidatedObject.GetType().Name}.{targetProperty.Name}";
-            foreach(var singleValidatorAttribute in manyValidatorAttributes)
+            foreach (var singleValidatorAttribute in manyValidatorAttributes)
             {
                 Func<ImmutableList<ValidationError>, Task<ImmutableList<ValidationError>>> validation = async (validationErrors) =>
                 {
@@ -71,12 +65,16 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
                         validationErrors,
                         key,
                         singleValidatorAttribute.ValidationFailed(value),
-                        singleValidatorAttribute.ErrorMessage);
+                        PlaceholderReplacer.GetWithPlaceholdersReplaced(singleValidatorAttribute.ErrorMessage, unValidatedObject));
                 };
                 fnValidators = fnValidators.Add(validation);
             }
             return fnValidators;
         }
 
+        private bool IsInstanceOfIValidatorAttribute(object attrib)
+        {
+            return typeof(ValidatorAttributeBase).IsAssignableFrom(attrib.GetType());
+        }
     }
 }
