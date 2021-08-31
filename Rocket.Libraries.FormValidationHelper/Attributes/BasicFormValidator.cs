@@ -10,15 +10,6 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
         {
         }
 
-        [Obsolete("Don't use this method. It will return errors correctly but never the success object, even when it should. Instead use ValidateAndPackAsync.")]
-        public async Task<ValidationResponse<TWrappedObject>> ValidateAndWrapAsync<TWrappedObject>(TObject unValidatedObject)
-        {
-            return new ValidationResponse<TWrappedObject>
-            {
-                ValidationErrors = await ValidateAsync(unValidatedObject)
-            };
-        }
-
         public async Task<ValidationResponse<TObject>> ValidateAndPackAsync(TObject unValidatedObject)
         {
             var validationErrors = await ValidateAsync(unValidatedObject);
@@ -37,7 +28,7 @@ namespace Rocket.Libraries.FormValidationHelper.Attributes
                 };
             }
         }
-        
+
         public override async Task<ImmutableList<ValidationError>> ValidateAsync(TObject unValidatedObject)
         {
             return await ValidateProxyAsync(
